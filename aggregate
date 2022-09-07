@@ -1,0 +1,315 @@
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| P2                 |
+| RMS                |
+| eComm              |
+| eCon               |
+| eConm              |
+| gaming             |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sys                |
++--------------------+
+11 rows in set (0.09 sec)
+
+mysql> create database cust_details;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> shoe databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'shoe databases' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| P2                 |
+| RMS                |
+| cust_details       |
+| eComm              |
+| eCon               |
+| eConm              |
+| gaming             |
+| mysql              |
+| performance_schema |
+| phpmyadmin         |
+| sys                |
++--------------------+
+12 rows in set (0.00 sec)
+
+mysql> use cust_details;
+Database changed
+mysql> show tables;
+Empty set (0.00 sec)
+
+mysql> use cust_details;
+Database changed
+mysql> create table (cust_id int(4) not null,cust_name varchar(20), ac_no int(8),ac_balance int(10),cust_email varchar(30));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(cust_id int(4) not null,cust_name varchar(20), ac_no int(8),ac_balance int(10),' at line 1
+mysql> create cust_details table (cust_id int(4) not null,cust_name varchar(20), ac_no int(8),ac_balance int(10),cust_email varchar(30));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cust_details table (cust_id int(4) not null,cust_name varchar(20), ac_no int(8),' at line 1
+mysql> create table cust_details\ (cust_id int(4) not null,cust_name varchar(20), ac_no int(8),ac_balance int(10),cust_email varchar(30));
+ERROR: 
+Unknown command '\ '.
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '\ (cust_id int(4) not null,cust_name varchar(20), ac_no int(8),ac_balance int(10' at line 1
+mysql> create table cust_details (cust_id int(4) not null,cust_name varchar(20), ac_no int(8),ac_balance int(10),cust_email varchar(30));
+Query OK, 0 rows affected (0.76 sec)
+
+mysql> use cust_details;
+Database changed
+mysql> show tables;
++------------------------+
+| Tables_in_cust_details |
++------------------------+
+| cust_details           |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> show table cust_details
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'cust_details' at line 1
+mysql> show tables;
++------------------------+
+| Tables_in_cust_details |
++------------------------+
+| cust_details           |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc cust_details
+    -> ;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| cust_id    | int(4)      | NO   |     | NULL    |       |
+| cust_name  | varchar(20) | YES  |     | NULL    |       |
+| ac_no      | int(8)      | YES  |     | NULL    |       |
+| ac_balance | int(10)     | YES  |     | NULL    |       |
+| cust_email | varchar(30) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> insert into cust_details values(3004,"vijay",50000752,30000,"vijay@dbit,com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> show tables;
++------------------------+
+| Tables_in_cust_details |
++------------------------+
+| cust_details           |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> desc cust_details
+    -> ;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| cust_id    | int(4)      | NO   |     | NULL    |       |
+| cust_name  | varchar(20) | YES  |     | NULL    |       |
+| ac_no      | int(8)      | YES  |     | NULL    |       |
+| ac_balance | int(10)     | YES  |     | NULL    |       |
+| cust_email | varchar(30) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> insert into cust_details values(3012,"Dhruv",50000754,3333,"dhruvv@dbit,com");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into cust_details values(3012,"Dhruv",50000754,3333,"dhruvv@dbit,com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into cust_details values(3011,"srujana",50003454,22223,"srujana@dbit,com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into cust_details values(3034,"neha",50066454,2023,"neha@dbit,com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into cust_details values(3334,"pradnya",50066004,203333,"pradnya@dbit,com");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into cust_details values(3304,"avon",50066104,20333003,"avon@dbit,com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select *from cust_details;
++---------+-----------+----------+------------+------------------+
+| cust_id | cust_name | ac_no    | ac_balance | cust_email       |
++---------+-----------+----------+------------+------------------+
+|    3004 | vijay     | 50000752 |      30000 | vijay@dbit,com   |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  |
+|    3011 | srujana   | 50003454 |      22223 | srujana@dbit,com |
+|    3034 | neha      | 50066454 |       2023 | neha@dbit,com    |
+|    3334 | pradnya   | 50066004 |     203333 | pradnya@dbit,com |
+|    3304 | avon      | 50066104 |   20333003 | avon@dbit,com    |
++---------+-----------+----------+------------+------------------+
+7 rows in set (0.00 sec)
+
+mysql> insert into cust_details values(2304,"lester",50063104,30013,"lester@dbit,com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into cust_details values(2340,"yashas",50034104,135003,"yashas@dbit,com");
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into cust_details values(2300,"ashish",50069690,1303,"ashish@dbit,com");
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select *from cust_details;
++---------+-----------+----------+------------+------------------+
+| cust_id | cust_name | ac_no    | ac_balance | cust_email       |
++---------+-----------+----------+------------+------------------+
+|    3004 | vijay     | 50000752 |      30000 | vijay@dbit,com   |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  |
+|    3011 | srujana   | 50003454 |      22223 | srujana@dbit,com |
+|    3034 | neha      | 50066454 |       2023 | neha@dbit,com    |
+|    3334 | pradnya   | 50066004 |     203333 | pradnya@dbit,com |
+|    3304 | avon      | 50066104 |   20333003 | avon@dbit,com    |
+|    2304 | lester    | 50063104 |      30013 | lester@dbit,com  |
+|    2340 | yashas    | 50034104 |     135003 | yashas@dbit,com  |
+|    2300 | ashish    | 50069690 |       1303 | ashish@dbit,com  |
++---------+-----------+----------+------------+------------------+
+10 rows in set (0.01 sec)
+
+mysql> select cust_id,count(cust_id) as 'no of acc' from cust_details group by cust_id
+    -> ;
++---------+-----------+
+| cust_id | no of acc |
++---------+-----------+
+|    2300 |         1 |
+|    2304 |         1 |
+|    2340 |         1 |
+|    3004 |         1 |
+|    3011 |         1 |
+|    3012 |         2 |
+|    3034 |         1 |
+|    3304 |         1 |
+|    3334 |         1 |
++---------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> Alter table cust_details add acc_type varchar(10);
+Query OK, 0 rows affected (1.55 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> select *from cust_details;
++---------+-----------+----------+------------+------------------+----------+
+| cust_id | cust_name | ac_no    | ac_balance | cust_email       | acc_type |
++---------+-----------+----------+------------+------------------+----------+
+|    3004 | vijay     | 50000752 |      30000 | vijay@dbit,com   | NULL     |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  | NULL     |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  | NULL     |
+|    3011 | srujana   | 50003454 |      22223 | srujana@dbit,com | NULL     |
+|    3034 | neha      | 50066454 |       2023 | neha@dbit,com    | NULL     |
+|    3334 | pradnya   | 50066004 |     203333 | pradnya@dbit,com | NULL     |
+|    3304 | avon      | 50066104 |   20333003 | avon@dbit,com    | NULL     |
+|    2304 | lester    | 50063104 |      30013 | lester@dbit,com  | NULL     |
+|    2340 | yashas    | 50034104 |     135003 | yashas@dbit,com  | NULL     |
+|    2300 | ashish    | 50069690 |       1303 | ashish@dbit,com  | NULL     |
++---------+-----------+----------+------------+------------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE cust_details SET acc_type = saving where cust_name ='lester';
+ERROR 1054 (42S22): Unknown column 'saving' in 'field list'
+mysql> UPDATE cust_details SET acc_type = 'saving' where cust_name ='lester';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from cust_details;
++---------+-----------+----------+------------+------------------+----------+
+| cust_id | cust_name | ac_no    | ac_balance | cust_email       | acc_type |
++---------+-----------+----------+------------+------------------+----------+
+|    3004 | vijay     | 50000752 |      30000 | vijay@dbit,com   | NULL     |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  | NULL     |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  | NULL     |
+|    3011 | srujana   | 50003454 |      22223 | srujana@dbit,com | NULL     |
+|    3034 | neha      | 50066454 |       2023 | neha@dbit,com    | NULL     |
+|    3334 | pradnya   | 50066004 |     203333 | pradnya@dbit,com | NULL     |
+|    3304 | avon      | 50066104 |   20333003 | avon@dbit,com    | NULL     |
+|    2304 | lester    | 50063104 |      30013 | lester@dbit,com  | saving   |
+|    2340 | yashas    | 50034104 |     135003 | yashas@dbit,com  | NULL     |
+|    2300 | ashish    | 50069690 |       1303 | ashish@dbit,com  | NULL     |
++---------+-----------+----------+------------+------------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> UPDATE cust_details SET acc_type = 'saving' where cust_name ='yashas';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE cust_details SET acc_type = 'saving' where cust_name ='ashish';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE cust_details SET acc_type = 'current' where cust_name ='vijay';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE cust_details SET acc_type = 'current' where cust_name ='dhruv';
+Query OK, 2 rows affected (0.10 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> UPDATE cust_details SET acc_type = 'current' where cust_name ='srujana';
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE cust_details SET acc_type = 'current' where cust_name ='neha';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE cust_details SET acc_type = 'current' where cust_name ='pradnya';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE cust_details SET acc_type = 'current' where cust_name ='avon';
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select *from cust_details;
++---------+-----------+----------+------------+------------------+----------+
+| cust_id | cust_name | ac_no    | ac_balance | cust_email       | acc_type |
++---------+-----------+----------+------------+------------------+----------+
+|    3004 | vijay     | 50000752 |      30000 | vijay@dbit,com   | current  |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  | current  |
+|    3012 | Dhruv     | 50000754 |       3333 | dhruvv@dbit,com  | current  |
+|    3011 | srujana   | 50003454 |      22223 | srujana@dbit,com | current  |
+|    3034 | neha      | 50066454 |       2023 | neha@dbit,com    | current  |
+|    3334 | pradnya   | 50066004 |     203333 | pradnya@dbit,com | current  |
+|    3304 | avon      | 50066104 |   20333003 | avon@dbit,com    | current  |
+|    2304 | lester    | 50063104 |      30013 | lester@dbit,com  | saving   |
+|    2340 | yashas    | 50034104 |     135003 | yashas@dbit,com  | saving   |
+|    2300 | ashish    | 50069690 |       1303 | ashish@dbit,com  | saving   |
++---------+-----------+----------+------------+------------------+----------+
+10 rows in set (0.00 sec)
+
+mysql> ^C
+mysql> select cust_id,count(cust_id) as 'no of acc' from cust_details group by cust_id
+    -> ;
++---------+-----------+
+| cust_id | no of acc |
++---------+-----------+
+|    2300 |         1 |
+|    2304 |         1 |
+|    2340 |         1 |
+|    3004 |         1 |
+|    3011 |         1 |
+|    3012 |         2 |
+|    3034 |         1 |
+|    3304 |         1 |
+|    3334 |         1 |
++---------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> select acc_type,count(acc_type) as 'no of acc' from cust_details group by acc_type;
++----------+-----------+
+| acc_type | no of acc |
++----------+-----------+
+| current  |         7 |
+| saving   |         3 |
++----------+-----------+
+2 rows in set (0.00 sec)
+
